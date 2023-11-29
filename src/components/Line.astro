@@ -26,17 +26,15 @@ const { vertical, x, y } = Astro.props;
                 inithz1 += speed;
                 backwards = false;
                 vtc1.style.visibility = "hidden";
-
             }
             if (inithz1 > firstCross) {
                 vtc1.style.height = hlimit + "px";
                 hlimit += speed;
                 vtc1.style.visibility = "visible";
-                if (hlimit > 160) hlimit = 160;
-
+                if (hlimit > 140) hlimit = 140;
             }
-            if (hlimit > 160 && inithz1 < 300) {
-                vtc1.style.height = 160 + "px";
+            if (hlimit > 140 && inithz1 < 300) {
+                vtc1.style.height = 140 + "px";
                 vtc1.style.top = initvt1 + "px";
                 initvt1 += speed;
             }
@@ -56,13 +54,58 @@ const { vertical, x, y } = Astro.props;
         class="w-[300px] h-px my-8 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
     />
     <hr
-        class="w-px h-40 left-[256px] top-8 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+        class="w-px h-32 left-[256px] top-8 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
     />
     <hr
         id="vtc1"
-        class="w-px h-40 left-[256px] top-8 absolute bg-blue-500 z-20 border-0 dark:bg-gray-700"
+        class="w-px h-32 left-[256px] top-8 absolute bg-blue-500 z-20 border-0 dark:bg-gray-700"
     />
     <hr
-        class="w-px h-20 right-48 top-40 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+        class="w-px h-20 right-72 top-80 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-52 h-px right-64 top-[350px] absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-72 h-px right-0 top-[400px] absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-56 h-px right-0 top-20 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-px h-20 right-48 top-20 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-28 h-px right-0 top-72 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-16 h-px right-0 top-60 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-36 h-px left-48 top-28 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-36 h-px left-0 top-64 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-px h-16 left-36 top-64 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-16 h-px left-36 top-72 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-96 h-px left-0 top-[400px] absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-px h-16 left-80 top-[400px] absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-px h-10 left-16 top-[360px] absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-px h-16 right-56 top-4 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-28 h-px right-48 top-10 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
     />
 </div>

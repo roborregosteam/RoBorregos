@@ -14,6 +14,12 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Tomorrow:wght@700&display=swap"
+			rel="stylesheet"
+		/>
 		<title>{title}</title>
 	</head>
 	<body>
@@ -21,6 +27,8 @@ const { title } = Astro.props;
 	</body>
 </html>
 <style is:global>
+	@import url("https://fonts.googleapis.com/css2?family=Tomorrow:wght@700&display=swap");
+
 	:root {
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;

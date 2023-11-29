@@ -14,6 +14,12 @@ export default {
 			animation: {
 				pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1)',
 			},
+			fontFamily: {
+				'tomorrow': ['Tomorrow', 'sans-serif'],
+			},
+			colors: {
+				'base-blue': '#0070F0'
+			}
 		},
 	},
 	darkMode: "class",
