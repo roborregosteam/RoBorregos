@@ -19,6 +19,12 @@ export default {
       animation: {
         pulseButton: "pulseButton 3s infinite",
       },
+      backgroundImage: {
+        "team-picture": "url('/Team.jpg')",
+      },
+      backgroundColor: {
+        "team-bg": "linear-gradient( 90deg, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0.5) 100%), url(/Team.jpg)",
+      }
     },
   },
   darkMode: "class",
