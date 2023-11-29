@@ -1,4 +1,5 @@
 ---
+import Line from "./Line.astro";
 interface Props {
     title: string;
     description: string;
@@ -8,17 +9,18 @@ const { title, description } = Astro.props;
 ---
 
 <script>
-    const words = ["Members", ":o", "Rbrgss"];
+    const words = ["Members", "we are roborregos"];
     let i = 0;
     let j = 0;
     let currentWord = "";
-    let isDeleting = false;
+    let isDeleting = true;
+    let deleteAnimation = false;
 
     const type = () => {
         currentWord = words[i];
         let t = document.getElementById("typewriter");
         if (t) {
-            if (isDeleting) {
+            if (isDeleting && deleteAnimation) {
                 t.textContent = currentWord.substring(0, j - 1);
                 j--;
                 if (j == 0) {
@@ -44,7 +46,7 @@ const { title, description } = Astro.props;
 
 <div class="text-center relative h-96">
     <div
-        class="bg-blue-500 rounded-full blur-3xl z-20 absolute opacity-40 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-1/4 aspect-square"
+        class="animate-pulse bg-blue-500 rounded-full blur-[180px] z-20 absolute opacity-90 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-1/5 aspect-square"
     >
     </div>
     <div
@@ -57,5 +59,8 @@ const { title, description } = Astro.props;
         <p class="text-white">
             {description}
         </p>
+    </div>
+    <div class="relative w-full">
+        <Line max="100/" />
     </div>
 </div>

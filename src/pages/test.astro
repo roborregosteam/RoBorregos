@@ -3,7 +3,6 @@ import { useState } from "react";
 import InfoCard from "../components/InfoCard.astro";
 import Title from "../components/Title.astro";
 
-
 const mission = {
     title: "Mission",
     description:
@@ -36,19 +35,21 @@ const vision = {
     const card1 = document.getElementById("card1");
     const card2 = document.getElementById("card2");
     window.addEventListener("scroll", () => {
-    const value = window.scrollY;
-    // if (value) setScroll(value);
+        const value = window.scrollY;
+        // if (value) setScroll(value);
 
-    if (card1) card1.style.left = value * 1.1 + "px";
+        if (card1) card1.style.left = value * 1.1 + "px";
 
-    if (card2) card2.style.right = value * 1.1 + "px";
-});
+        if (card2) card2.style.right = value * 1.1 + "px";
+    });
 </script>
 
 <main>
-    <div class="z-50 h-max p-8 scroll-pb-96 bg-black">
-        <Title title="MEMBERS" description="RoBorrego's community is made by students with different skills in robotics, logistics and networking, all joined with a passion for exploring new technologies and sharing their knowledge with everybody." />
-        <div class="h-96"></div>
+    <div class="z-50 h-max scroll-pb-96 bg-black">
+        <Title
+            title="MEMBERS"
+            description="RoBorrego's community is made by students with different skills in robotics, logistics and networking, all joined with a passion for exploring new technologies and sharing their knowledge with everybody."
+        />
         <div class="h-96"></div>
         <div class="flex justify-between relative">
             <InfoCard
