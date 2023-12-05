@@ -1,4 +1,5 @@
 ---
+import Circuit from "./Circuit.astro";
 import Line from "./Line.astro";
 interface Props {
     title: string;
@@ -48,15 +49,14 @@ const { title, description } = Astro.props;
     type();
 </script>
 
-<div class="text-center relative h-96">
+<div class="text-center relative h-96 w-full">
     <div
-        class="animate-pulse bg-base-blue rounded-full blur-[180px] z-20 absolute opacity-90 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-1/5 aspect-square"
+        class="animate-pulse bg-base-blue rounded-full blur-[180px] z-20 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-1/5 aspect-square"
     >
     </div>
     <div
         class="z-50 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 flex flex-col"
     >
-        <!-- <h1 id="typewriter" class="text-4xl font-bold"></h1> -->
         <h1 id="typewriter" class="text-white font-tomorrow font-bold text-5xl">
             {title}
         </h1>
@@ -64,7 +64,7 @@ const { title, description } = Astro.props;
             {description}
         </p>
     </div>
-    <div class="relative w-full">
-        <Line max="100/" />
+    <div class="w-full">
+        <Circuit />
     </div>
 </div>
