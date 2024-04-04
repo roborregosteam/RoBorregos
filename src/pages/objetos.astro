@@ -1,0 +1,65 @@
+<script>
+    import { Application } from "@splinetool/runtime";
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+    const canvas = document.getElementById("canvas3d") as HTMLCanvasElement;
+    const app = new Application(canvas);
+    app.load(
+        "https://prod.spline.design/G6JhPkRuoXsO9U87/scene.splinecode",
+    ).then(() => {
+        const Monito = app.findObjectByName("home");
+        if (Monito) {
+            gsap.set(Monito.scale, { x: 1.5, y: 1.5, z: 1.5 });
+            gsap.set(Monito.position, { x: -600, z: 300 });
+            gsap.set(Monito.rotation, { y: Math.PI * 0.15, x: -Math.PI * 0.1 });
+
+            gsap.to(Monito.rotation, {
+                y: Math.PI * 2.15,
+                repeat: -1,
+                duration: 8,
+                ease: "none",
+            });
+
+            gsap.to(Monito.position, {
+                scrollTrigger: {
+                    trigger: "#part2",
+                    start: "top bottom",
+                    end: "bottom bottom  ",
+                    // markers: true,
+                    scrub: true,
+                    toggleActions: "restart none reverse none",
+                },
+                x: 500,
+                y: 80,
+                z: -200,
+            });
+  
+        }
+    });
+</script>
+
+<main class="bg-black text-white">
+    <div
+        id="mono"
+        class="fixed z-10 top-0 left-0 w-screen h-screen pointer-events-none"
+    >
+        <canvas id="canvas3d" class="w-full h-full"></canvas>
+    </div>
+
+    <div id="part1" class="flex h-screen">
+        <div class="w-1/2 flex justify-center items-center"></div>
+        <div class="w-1/2 flex flex-col justify-center items-center">
+            <h3>Primera PARTE</h3>
+            <div>cartita de ale</div>
+        </div>
+    </div>
+    <div id="part2" class="flex h-screen">
+        <div class="w-1/2 flex flex-col justify-center items-center">
+            <h3>SEGUNDA PARTE</h3>
+            <div>cartita de ale</div>
+        </div>
+        <div class="w-1/2 flex justify-center items-center"></div>
+    </div>
+</main>
