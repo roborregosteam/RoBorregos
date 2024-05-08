@@ -1,0 +1,70 @@
+---
+import Circuit from "./Circuit.astro";
+import Line from "./Line.astro";
+interface Props {
+    title: string;
+    description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Tomorrow:wght@700&display=swap");
+</style>
+
+<script>
+    const words = ["MEMBERS", "we are roborregos"];
+    let i = 0;
+    let j = 0;
+    let currentWord = "";
+    let isDeleting = true;
+    let deleteAnimation = false;
+
+    const type = () => {
+        currentWord = words[i];
+        let t = document.getElementById("typewriter");
+        if (t) {
+            if (isDeleting && deleteAnimation) {
+                t.textContent = currentWord.substring(0, j - 1);
+                j--;
+                if (j == 0) {
+                    isDeleting = false;
+                    i++;
+                    if (i == words.length) {
+                        i = 0;
+                    }
+                }
+            } else {
+                t.textContent = currentWord.substring(0, j + 1);
+                j++;
+                if (j == currentWord.length) {
+                    isDeleting = true;
+                }
+            }
+        }
+        setTimeout(type, 200);
+    };
+
+    type();
+</script>
+
+<div class="text-center relative h-96 w-full">
+    <div
+        class="animate-pulse bg-base-blue rounded-full blur-[180px] z-20 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-1/5 aspect-square"
+    >
+    </div>
+    <div
+        class="z-50 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 flex flex-col"
+    >
+        <h1 id="typewriter" class="text-white font-tomorrow font-bold text-5xl">
+            {title}
+        </h1>
+        <p class="text-white pt-8">
+            {description}
+        </p>
+    </div>
+    <div class="w-full">
+        <Circuit />
+    </div>
+</div>

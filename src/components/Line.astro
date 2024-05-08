@@ -1,0 +1,111 @@
+---
+interface LineProps {
+    vertical?: boolean;
+    x?: number;
+    y?: number;
+}
+
+const { vertical, x, y } = Astro.props;
+---
+
+<script>
+    let speed = 3;
+    let maxL = 258;
+    let inithz1 = 0;
+    let initvt1 = 32;
+    let backwards = false;
+    let firstCross = 100;
+    let hlimit = 0;
+    const type = () => {
+        let hz1 = document.getElementById("hzt1");
+        let vtc1 = document.getElementById("vtc1");
+
+        if (hz1 && vtc1) {
+            if (inithz1 < maxL) {
+                hz1.style.left = inithz1 + "px";
+                inithz1 += speed;
+                backwards = false;
+                vtc1.style.visibility = "hidden";
+            }
+            if (inithz1 > firstCross) {
+                vtc1.style.height = hlimit + "px";
+                hlimit += speed;
+                vtc1.style.visibility = "visible";
+                if (hlimit > 140) hlimit = 140;
+            }
+            if (hlimit > 140 && inithz1 < 300) {
+                vtc1.style.height = 140 + "px";
+                vtc1.style.top = initvt1 + "px";
+                initvt1 += speed;
+            }
+        }
+        setTimeout(type, 10);
+    };
+
+    type();
+</script>
+
+<div class="w-full">
+    <hr
+        id="hzt1"
+        class="w-40 left-10 h-px top-8 absolute bg-blue-600 z-50 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-[300px] h-px my-8 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-px h-32 left-[256px] top-8 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        id="vtc1"
+        class="w-px h-32 left-[256px] top-8 absolute bg-blue-500 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-px h-20 right-72 top-80 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-52 h-px right-64 top-[350px] absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-72 h-px right-0 top-[400px] absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-56 h-px right-0 top-20 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-px h-20 right-48 top-20 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-28 h-px right-0 top-72 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-16 h-px right-0 top-60 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-36 h-px left-48 top-28 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-36 h-px left-0 top-64 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-px h-16 left-36 top-64 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-16 h-px left-36 top-72 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-96 h-px left-0 top-[400px] absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-px h-16 left-80 top-[400px] absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-px h-10 left-16 top-[360px] absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-px h-16 right-56 top-4 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+    <hr
+        class="w-28 h-px right-48 top-10 absolute bg-gray-400 z-20 border-0 dark:bg-gray-700"
+    />
+</div>
