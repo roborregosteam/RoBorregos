@@ -1,0 +1,92 @@
+<script>
+  import { Application } from "@splinetool/runtime";
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+  const canvas = document.getElementById("canvas3d") as HTMLCanvasElement;
+  const spline = new Application(canvas, { renderMode: "auto" });
+  spline
+    .load("https://draft.spline.design/mGvH4awEDkuQ0CzW/scene.splinecode")
+    .then(() => {
+      const Robot = spline.findObjectByName("Robot");
+      const Plataform = spline.findObjectByName("Plataform");
+      //   let RobotPosition = -3000;
+
+      //Robot initalization
+      if (Robot && Plataform) {
+        gsap.set(Robot.position, {
+          x: -3000,
+          y: -200,
+          z: 0,
+        });
+
+        //Plataform initalization and animation
+        gsap.to(Plataform.rotation, {
+          y: Math.PI * 4,
+          repeat: -1,
+          duration: 10,
+          ease: "none",
+        });
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: "#Part1Model3D",
+              start: "top 40%",
+              end: "bottom bottom",
+              // markers: true,
+              scrub: true,
+            },
+          })
+          .to(Robot.position, {
+            x: -900,
+          });
+
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: "#Part2Model3D",
+              start: "top bottom",
+              end: "bottom bottom",
+              // markers: true,
+              scrub: true,
+            },
+          })
+          .to(Robot.rotation, {
+            y: Math.PI * 2,
+            duration: 1,
+            ease: "power2.inOut",
+          })
+          .to(Robot.position, {
+            x: 600,
+            y: -200,
+          })
+          .to(Robot.scale, {
+            x: 1.1,
+            y: 1.1,
+            z: 1.1,
+          });
+
+        // //ScrollTrigger
+        // ScrollTrigger.create({
+        //   trigger: "#Part2Model3D",
+        //   start: "top 80%",
+        //   end: "bottom bottom",
+        //   //   markers: true,
+        //   scrub: true,
+        //   onUpdate: (self) => {
+        //     const progress = Number(self.progress.toFixed(3)) * 1600 - 800;
+        //     gsap.to(Robot.position, {
+        //       x: progress,
+        //       duration: 0.1,
+        //       ease: "power2.inOut",
+        //     });
+        //   },
+        // });
+      }
+    });
+</script>
+
+<div class="fixed top-0 left-0 w-full h-screen pointer-events-none">
+  <canvas id="canvas3d" class="w-full h-full"></canvas>
+</div>
