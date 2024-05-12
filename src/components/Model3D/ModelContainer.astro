@@ -32,8 +32,8 @@ const vision = {
     {
       scrollTrigger: {
         trigger: "#Part1Model3D",
-        start: "top 90%",
-        end: "top 90%",
+        start: "top 80%",
+        end: "top 80%",
         // markers: true,
         toggleActions: "play none reverse none",
       },
@@ -51,9 +51,9 @@ const vision = {
     {
       scrollTrigger: {
         trigger: "#Part2Model3D",
-        start: "top bottom",
+        start: "top 80%",
         end: "bottom bottom",
-        // markers: true,
+        markers: true,
         scrub: true,
       },
       x: 0,
@@ -66,17 +66,18 @@ const vision = {
   gsap.fromTo(
     card2,
     {
-      x: -600,
-      y: -650,
+      x: -300,
+      y: -300,
+      rotationY: 180,
       opacity: 0,
 
     },
     {
       scrollTrigger: {
         trigger: "#Part2Model3D",
-        start: "top bottom",
+        start: "top+=20% 80%",
         end: "bottom bottom",
-        // markers: true,
+        markers: true,
         scrub: true,
       },
       x: 0,
@@ -97,12 +98,13 @@ const vision = {
     },
     y: "100%",
   });
+
 </script>
 
 <section class="bg-black relative">
-  <Robot />
+  <!-- <Robot /> -->
 
-  <div id="Part1Model3D" class="flex h-screen z-40">
+  <div id="Part1Model3D" class="flex h-screen z-40 border-red-500 border">
     <div class="w-1/2 flex justify-center items-center"></div>
     <div class="w-1/2 flex flex-col justify-center items-center">
       <InfoCard
@@ -114,7 +116,7 @@ const vision = {
     </div>
   </div>
 
-  <div id="Part2Model3D" class="flex h-screen">
+  <div id="Part2Model3D" class="flex h-screen border">
     <div class="w-1/2 flex flex-col justify-center items-center"></div>
     <div class="w-1/2 flex flex-col justify-center items-center">
       <InfoCard
