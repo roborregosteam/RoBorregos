@@ -7,7 +7,7 @@ export default {
 		extend: {
 			backgroundImage: {
 				'Homebg': 'linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.55)),url("/images/HomeBg.jpg")',
-				'Homebg-degradado': 'linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.0),rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0.75))',
+				'Homebgdegra': 'linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0.55),rgba(0,0,0,0.95))',
 			  },
 			keyframes: {
 				pulse: {
