@@ -14,39 +14,9 @@ const { title, description } = Astro.props;
 </style>
 
 <script>
-    const words = ["MEMBERS", "we are roborregos"];
-    let i = 0;
-    let j = 0;
-    let currentWord = "";
-    let isDeleting = true;
-    let deleteAnimation = false;
-
-    const type = () => {
-        currentWord = words[i];
-        let t = document.getElementById("typewriter");
-        if (t) {
-            if (isDeleting && deleteAnimation) {
-                t.textContent = currentWord.substring(0, j - 1);
-                j--;
-                if (j == 0) {
-                    isDeleting = false;
-                    i++;
-                    if (i == words.length) {
-                        i = 0;
-                    }
-                }
-            } else {
-                t.textContent = currentWord.substring(0, j + 1);
-                j++;
-                if (j == currentWord.length) {
-                    isDeleting = true;
-                }
-            }
-        }
-        setTimeout(type, 200);
-    };
-
-    type();
+    import {typeTitle} from "../utils/Typing"
+    // title and id of the element to type
+    typeTitle("MEMBERS", "typewriter");
 </script>
 
 <div class="text-center relative h-96 w-full">
