@@ -30,7 +30,7 @@ export default function NavbarLayout() {
 
   const links = [
     { name: "Home", href: "/", className: "text-white", active: true },
-    { name: "Members", href: "/", className: "text-white" },
+    { name: "Members", href: "/test", className: "text-white" },
     { name: "About", href: "/", className: "text-white" },
     { name: "Projects", href: "/", className: "text-white" },
     { name: "Candidates", href: "/", className: "text-white" },

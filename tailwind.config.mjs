@@ -23,13 +23,26 @@ export default {
 				fadeIn: {
 					'0%': { opacity: 0 },
 					'100%': { opacity: 1 },
+		
 				},
 			},
 			animation: {
 				pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1)',
 				blinkfast: 'blinkfast 0.8s linear infinite',
-				fadeIn: 'fadeIn 2s ease-in-out forwards',
+				fadeIn: 'fadeIn 2s ease-in-out forwards ',
 				
+			},
+			transitionDelay:{
+				'2000': '2000ms',
+				'3000': '3000ms',
+				'4000': '4000ms',
+				'5000': '5000ms',
+				'6000': '6000ms',
+				'7000': '7000ms',
+				'8000': '8000ms',
+				'9000': '9000ms',
+				'10000': '10000ms',
+				'mas': '6000ms',
 			},
 			fontFamily: {
 				'tomorrow': ['Tomorrow', 'sans-serif'],
