@@ -1,17 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/navbar/Navbar";
-import ModelContainer from "../components/Model3D/ModelContainer.astro";
+import Footer from "../components/footer/Footer";
+import ScrollToTopButton from "../components/layout/ScrollTopButton";
 import Home from "../components/Home/Home.astro";
+import ModelContainer from "../components/Model3D/ModelContainer.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <Navbar client:visible />
-
-  <!-- Home -->
-  <Home />
-  <!-- Model3D -->
-  <ModelContainer />
-
-
+  <div class="flex flex-col content-between">
+    <Navbar client:load />
+    <Home />
+    <ModelContainer />
+    <Footer />
+  </div>
+  <ScrollToTopButton client:load />
 </Layout>
