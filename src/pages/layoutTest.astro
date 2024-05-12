@@ -5,6 +5,7 @@ import Footer from "../components/footer/Footer";
 import ScrollToTopButton from "../components/layout/ScrollTopButton";
 import Home from "../components/Home/Home.astro";
 import ModelContainer from "../components/Model3D/ModelContainer.astro";
+import LogoCarousel from "../components/LogoCarousel";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -12,6 +13,7 @@ import ModelContainer from "../components/Model3D/ModelContainer.astro";
     <Navbar client:load />
     <Home />
     <ModelContainer />
+    <LogoCarousel />
     <Footer />
   </div>
   <ScrollToTopButton client:load />

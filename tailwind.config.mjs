@@ -35,12 +35,18 @@ export default {
           "0%, 100%": { boxShadow: "0px 0px 10px 7px rgba(0, 0, 255, 0.2)" },
           "50%": { boxShadow: "0px 0px 10px 9px rgba(0, 0, 255, 0.5)" },
         },
+        "infinite-carousel": {
+					"from": { transform: "translateX(0)" },
+					"to": { transform: "translateX(-100%)" },
+				},
+
       },
       animation: {
         pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1)",
         blinkfast: "blinkfast 0.8s linear infinite",
         fadeIn: "fadeIn 2s ease-in-out forwards ",
         pulseButton: "pulseButton 3s infinite",
+        "infinite-carousel": "infinite-carousel 10s linear infinite",
       },
 
       fontFamily: {
@@ -51,6 +57,19 @@ export default {
       },
     },
   },
+  variants: {
+		extend: {
+			animation: ["hover", "group-hover"],
+		},
+	},
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [nextui(),
+		function ({addUtilities}) {
+			const newUtilities = {
+				".pause-animation": {
+					"animation-play-state": "paused",
+				},
+			};
+			addUtilities(newUtilities);
+		}],
 };
