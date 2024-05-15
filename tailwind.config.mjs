@@ -16,6 +16,8 @@ export default {
           "linear-gradient(180deg, rgba(0,0,0,0)0% 80%,rgba(0,0,0,.95))",
         carouselParners:
           "linear-gradient(180deg, rgba(0, 112, 240,0.4) ,rgba(0,0,0,0) 15% 85%,rgba(0, 112, 240,0.4))",
+        Gallery_Gradient:
+          "linear-gradient(90deg, rgba(0, 0, 0,0.95) ,rgba(0,0,0,0) 30% 70%,rgba(0, 0, 0,0.95))"
       },
       boxShadow: {
         button: "0px 0px 10px 20px rgba(0, 0, 255, .2)",

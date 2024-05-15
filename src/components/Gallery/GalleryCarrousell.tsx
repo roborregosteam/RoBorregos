@@ -16,33 +16,38 @@ const GalleryCarrousell = () => {
     "https://roborregos.com/static/media/12.4c38ea3a9f916f07f81f.jpg",
   ];
 
-  return (
-    <div className="flex-grow flex items-center justify-center  space-x-10 overflow-x-scroll border">
-      {/* {images.map((image, index) => (
-        <img
-          key={index}
-          src={image}
-          alt="gallery"
-          className="w-1/2 h-1/2 object-cover rounded-md"
-        />
-      ))} */}
-      <div className="p-5 bg-red-500 w-1/2 h-1/2" >
-        <img src={images[0]} alt="gallery" className=" rounded-md" />
-      </div>
-      {/* <img
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-        src={images[1]}
-        alt="gallery"
-        className=" rounded-md"
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000); // Cambia de imagen cada 3 segundos
+
+    return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
+  }, [images.length]);
+
+  return (
+    <div className="flex justify-center  relative ">
+      <img
+        src={images[(currentIndex - 1 + images.length) % images.length]}
+        alt="previous"
+        className="w-[600px] aspect-video object-cover rounded-xl scale-90"
       />
       <img
-
-        src={images[2]}
-        alt="gallery"
-        className=" rounded-md"
-      /> */}
+        src={images[currentIndex]}
+        alt=""
+        className="w-[600px] aspect-video object-cover rounded-xl scale-105"
+      />
+      <img
+         src={images[(currentIndex + 1) % images.length]}
+        alt=""
+        className="w-[600px] aspect-video object-cover rounded-xl scale-90"
+      />
+      <div className="w-full h-full absolute bg-Gallery_Gradient "/>
     </div>
   );
+
+
 };
 
 export default GalleryCarrousell;
