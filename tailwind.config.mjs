@@ -13,7 +13,9 @@ export default {
         Homebg:
           'linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.55)),url("/images/HomeBg.jpg")',
         Homebg_gradient:
-          "linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0.55),rgba(0,0,0,0.95))",
+          "linear-gradient(180deg, rgba(0,0,0,0)0% 80%,rgba(0,0,0,.95))",
+        carouselParners:
+          "linear-gradient(180deg, rgba(0, 112, 240,0.4) ,rgba(0,0,0,0) 15% 85%,rgba(0, 112, 240,0.4))",
       },
       boxShadow: {
         button: "0px 0px 10px 20px rgba(0, 0, 255, .2)",
@@ -36,10 +38,9 @@ export default {
           "50%": { boxShadow: "0px 0px 10px 9px rgba(0, 0, 255, 0.5)" },
         },
         "infinite-carousel": {
-					"from": { transform: "translateX(0)" },
-					"to": { transform: "translateX(-100%)" },
-				},
-
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
       },
       animation: {
         pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1)",
@@ -58,18 +59,20 @@ export default {
     },
   },
   variants: {
-		extend: {
-			animation: ["hover", "group-hover"],
-		},
-	},
+    extend: {
+      animation: ["hover", "group-hover"],
+    },
+  },
   darkMode: "class",
-  plugins: [nextui(),
-		function ({addUtilities}) {
-			const newUtilities = {
-				".pause-animation": {
-					"animation-play-state": "paused",
-				},
-			};
-			addUtilities(newUtilities);
-		}],
+  plugins: [
+    nextui(),
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".pause-animation": {
+          "animation-play-state": "paused",
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
 };
