@@ -1,0 +1,40 @@
+---
+import Circuit from "./Circuit.astro";
+import Line from "./Line.astro";
+interface Props {
+    title: string;
+    description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Tomorrow:wght@700&display=swap");
+</style>
+
+<script>   
+  import { typeTitle } from "../utils/Typing";
+  // title and id of the element to type
+  typeTitle("MEMBERS", "typewriter");
+</script>
+
+<div class="text-center relative h-96 w-full my-24">
+    <div
+        class="animate-pulse bg-base-blue rounded-full blur-[180px] z-20 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-1/5 aspect-square"
+    >
+    </div>
+    <div
+        class="z-50 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 flex flex-col"
+    >
+        <h1 id="typewriter" class="text-white font-tomorrow font-bold text-5xl">
+            {title}
+        </h1>
+        <p class="text-white pt-8">
+            {description}
+        </p>
+    </div>
+    <div class="w-full">
+        <Circuit />
+    </div>
+</div>

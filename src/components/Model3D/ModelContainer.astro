@@ -1,0 +1,131 @@
+---
+import Robot from "./Robot.astro";
+import InfoCard from "../InfoCard.astro";
+const mission = {
+  title: "Mission",
+  description:
+    "Create a community that integrates students, teachers, alumni, companies, institutions and society in general to promote the development of robotics in Mexico.",
+  image: "/images/mission.jpeg",
+};
+
+const vision = {
+  title: "Vision",
+  description:
+    "Inspire future generations of the robotics community in Latin America",
+  image: "/images/vision.jpeg",
+};
+---
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  const card = document.getElementById("MissionCard");
+
+  gsap.fromTo(
+    card,
+    {
+      x: 400,
+      opacity: 0,
+    },
+    {
+      scrollTrigger: {
+        trigger: "#Part1Model3D",
+        start: "top 50%",
+        end: "bottom 80%",
+        // markers: true,
+        toggleActions: "play complete none reverse",
+      },
+      x: -600,
+      opacity: 1,
+      duration: 1,
+    }
+  );
+
+  gsap.fromTo(
+    card,
+    {
+      x: -600,
+    },
+    {
+      scrollTrigger: {
+        trigger: "#Part2Model3D",
+        start: "top 80%",
+        end: "top+=30% 80%",
+        // markers: true,
+        scrub: true,
+      },
+      x: -300,
+      rotationY: 180,
+      opacity: 0,
+    }
+  );
+
+  const card2 = document.getElementById("VisionCard");
+  gsap.fromTo(
+    card2,
+    {
+      x: -300,
+      y: -200,
+      rotationY: 180,
+      opacity: 0,
+
+    },
+    {
+      scrollTrigger: {
+        trigger: "#Part2Model3D",
+        start: "top+=20% 80%",
+        end: "bottom bottom",
+        // markers: true,
+        scrub: true,
+      },
+      x: 0,
+      y: 0,
+      rotationY: 360,
+      opacity: 1,
+    }
+  );
+
+
+
+  gsap.to("#Part1Model3D", {
+    scrollTrigger: {
+      trigger: "#Part2Model3D",
+      start: "top bottom",
+      end: "bottom bottom",
+      scrub: true,
+    },
+    y: "100%",
+  });
+
+</script>
+
+<section class="bg-black relative">
+  <!-- <Robot /> -->
+
+  <div id="Part1Model3D" class="flex h-screen z-40">
+    <div class="w-1/2 flex justify-center items-center"></div>
+    <div class="w-1/2 flex flex-col justify-center items-center">
+      <InfoCard
+        title={mission.title}
+        info={mission.description}
+        image={mission.image}
+        id="MissionCard"
+      />
+    </div>
+  </div>
+
+  <div id="Part2Model3D" class="flex h-screen ">
+    <div class="w-1/2 flex flex-col justify-center items-center"></div>
+    <div class="w-1/2 flex flex-col justify-center items-center">
+      <InfoCard
+        title={vision.title}
+        info={vision.description}
+        image={vision.image}
+        id="VisionCard"
+        right
+      />
+    </div>
+  </div>
+</section>

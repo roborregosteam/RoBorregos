@@ -1,0 +1,38 @@
+---
+import Title from "../components/Title.astro";
+import Subtitle from "../components/General/Subtitle.astro";
+import InfoCard from "../components/InfoCard.astro";
+---
+
+<div class="h-full bg-black pt-24 pb-24">
+    <Title
+        title="Members"
+        description="RoBorrego's community is made by students with different skills in robotics, logistics and networking, all joined with a passion for exploring new technologies and sharing their knowledge with everybody."
+    />
+
+    <div class="mt-24"></div>
+    <Subtitle subtitle="About us" />
+
+    <div class="w-auto flex justify-around pt-10">
+        <InfoCard
+            title="It's all about people"
+            info="Everything we accomplish is thanks to the trust we put in each other and the passion we share for robotics and technology; we feel proud to have valuable members with different talents and perspectives that contribute to reaching our goals."
+            image="/images/people.jpg"
+            regular
+        />
+
+        <InfoCard
+            title="Open Source"
+            info="Sharing knowledge and making it accessible is how we make our members and community grow and tech development transcend."
+            image="/images/opensource.jpg"
+            regular
+        />
+
+        <InfoCard
+            title="Curiosity to innovate"
+            info="With technology, there are always new ways in which solutions can be developed to be better, and we are hungry to discover them. There is always space to improve, grow, learn and create, and we always look for new challenges."
+            image="/images/innovate.jpg"
+            regular
+        />
+    </div>
+</div>
