@@ -5,12 +5,9 @@ on:
     branches: ["main"]
 
 jobs:
-  build:
+  sync:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Get GITHUB_TOKEN from secrets
-        run: export GITHUB_TOKEN=${{ secrets.RBRGS_TEAM_GITHUB_TOKEN }}
       - name: Update Fork
         run: |
           curl -L \
